@@ -3,12 +3,12 @@ import Question from "./Question";
 import quiz from "../data/quiz";
 
 function App() {
-  const [questions, setQuestions] = useState(quiz);
-  const [currentQuestionId, setCurrentQuestion] = useState(1);
-  const [score, setScore] = useState(0);
-  const currentQuestion = questions.find((q) => q.id === currentQuestionId);
+ const [questions] = useState(quiz);
+ const [currentQuestionId, setCurrentQuestion] = useState(1);
+ const [score, setScore] = useState(0);
+ const currentQuestion = questions.find((q) => q.id === currentQuestionId);
 
-  function handleQuestionAnswered(correct) {
+ function handleQuestionAnswered(correct) {
     if (currentQuestionId < questions.length) {
       setCurrentQuestion((currentQuestionId) => currentQuestionId + 1);
     } else {
@@ -17,9 +17,9 @@ function App() {
     if (correct) {
       setScore((score) => score + 1);
     }
-  }
+ }
 
-  return (
+ return (
     <main>
       <section>
         {currentQuestion ? (
@@ -35,7 +35,7 @@ function App() {
         )}
       </section>
     </main>
-  );
+ );
 }
 
 export default App;
